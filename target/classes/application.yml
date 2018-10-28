@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: eurekaserver
+
+server:
+  port: 8200
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    server:
+      waitTimeInMsWhenSyncEmpty: 0
+    service-url:
+      defaultZone: http://localhost:8200/eureka
+
+zuul:
+  prefix: /api
+  routes:
+    add:
+      path: /**
+      url: http://locahost:8201
